@@ -1,0 +1,24 @@
+﻿@inherits Umbraco.Web.Mvc.UmbracoViewPage<ContentModels.GameListPage>
+@using ContentModels = Umbraco.Web.PublishedModels;
+@using UmbracoQuiz.Core.Controllers
+
+@{
+    Layout = "master.cshtml";
+}
+
+<h1>@Model.Header</h1>
+
+<br />
+
+@foreach (var game in Model.Children<GameRoomPage>())
+{
+    <h2>@game.Name</h2>
+    using (Html.BeginUmbracoForm<GameRoomController>("EnterRoom", FormMethod.Get))
+    {
+        <input type="hidden" name="nodeId" id="nodeId" value="@game.Id"  />
+        <input name="roomCode" id="roomCode" type="text" placeholder="Ange rumkod" max="4"/>
+        @Html.ValidationMessage(game.Id.ToString())
+        <button type="submit">Anslut</button>
+    }
+    <hr />
+}
