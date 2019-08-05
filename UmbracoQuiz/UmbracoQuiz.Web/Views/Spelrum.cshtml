@@ -1,5 +1,41 @@
 ﻿@inherits Umbraco.Web.Mvc.UmbracoViewPage<ContentModels.GameRoomPage>
 @using ContentModels = Umbraco.Web.PublishedModels;
 @{
-	Layout = "master.cshtml";
+    Layout = "master.cshtml";
+}
+<input id="nodeIdInput" type="hidden" value="@Model.Id" />
+<div>
+
+    <h1>@Model.Name</h1>
+
+    <input id="klicka" value="klick" type="button" />
+</div>
+
+@section Scripts{
+    <script src="~/Umbraco/lib/signalr/jquery.signalR.js"></script>
+    <script src="/signalr/hubs"></script>
+    <script>
+        var quiz = $.connection.quizHub;
+
+        quiz.client.addNewMessageToPage = function (name, message) {
+            // Add the message to the page.
+            alert(name + message);
+        };
+
+        quiz.client.playerJoin = function (players) {
+
+        };
+
+        $.connection.hub.start().done(function () {
+            var nodeId = $('#nodeIdInput').val();
+            quiz.server.connectedToRoom(nodeId);
+
+
+            $('#klicka').click(function () {
+                quiz.server.send('#displayname', '#message');
+            });
+
+        });
+
+    </script>
 }

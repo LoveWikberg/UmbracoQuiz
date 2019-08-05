@@ -6471,6 +6471,9 @@
     <Content Include="node_modules\yargs\lib\yerror.js" />
     <Content Include="node_modules\yargs\node_modules\camelcase\index.js" />
     <Content Include="node_modules\yargs\yargs.js" />
+    <None Include="Scripts\jquery-1.6.4-vsdoc.js" />
+    <Content Include="Scripts\jquery-1.6.4.js" />
+    <Content Include="Scripts\jquery-1.6.4.min.js" />
     <Content Include="Umbraco\assets\css\canvasdesigner.css" />
     <Content Include="Umbraco\assets\css\installer.css" />
     <Content Include="Umbraco\assets\css\nonodes.style.min.css" />
@@ -11915,10 +11918,13 @@
     <Content Include="Umbraco\Views\Preview\Index.cshtml" />
     <Content Include="Umbraco\Views\web.config" />
     <Content Include="Views\AllaQuizar.cshtml" />
-    <Content Include="Views\Fraga.cshtml" />
     <Content Include="Views\Quiz.cshtml" />
     <Content Include="Views\SidaForAllaRum.cshtml" />
     <Content Include="Views\Spelrum.cshtml" />
+    <Content Include="Views\Partials\_alternativeQuestion.cshtml" />
+    <Content Include="Views\QuizMedAlternativ.cshtml" />
+    <Content Include="Views\Buzzfraga.cshtml" />
+    <Content Include="Views\Partials\_buzzQuestion.cshtml" />
     <None Include="Web.Debug.config">
       <DependentUpon>Web.config</DependentUpon>
     </None>
