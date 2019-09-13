@@ -1,1 +1,14 @@
-﻿
+﻿@model QuestionModel
+@using UmbracoQuiz.Core.Models
+
+<div class="content-wrapper wrapper-medium question-wrapper">
+    @if (!string.IsNullOrWhiteSpace(Model.Question))
+    {
+        <h3>@Model.Question</h3>
+    }
+    @if (!string.IsNullOrWhiteSpace(Model.ImageUrl))
+    {
+        <img src="@Model.ImageUrl" />
+    }
+    <button id="buzzerBtn" class="button-strong buzzer-button">Buzz</button>
+</div>

@@ -1,1 +1,19 @@
-﻿
+﻿@model AlternativeQuestionModel
+@using UmbracoQuiz.Core.Models
+
+<div class="content-wrapper wrapper-medium question-wrapper">
+    @if (!string.IsNullOrWhiteSpace(Model.Question))
+    {
+        <h3>@Model.Question</h3>
+    }
+    @if (!string.IsNullOrWhiteSpace(Model.ImageUrl))
+    {
+        <img src="@Model.ImageUrl" />
+    }
+    <div class="alternatives-wrapper">
+        @foreach (var alternative in Model.Alternatives)
+        {
+            <button class="button-strong">@alternative</button>
+        }
+    </div>
+</div>

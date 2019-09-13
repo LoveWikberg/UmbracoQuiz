@@ -14,7 +14,9 @@ module.exports = {
     // so we define the Sass file under './Styles' directory
     entry: function () {
         return {
-            style: glob.sync("./Static/Styles/*.scss")
+            startpage: glob.sync("./Static/Styles/Pages/StartPage.scss"),
+            gameroompage: glob.sync("./Static/Styles/Pages/GameRoomPage.scss"),
+            gameroomlistpage: glob.sync("./Static/Styles/Pages/GameRoomListPage.scss")
         };
     },
     // This is where we define the path where Webpack will place
@@ -25,10 +27,10 @@ module.exports = {
         // Specify the base path for all the styles within your
         // application. This is relative to the output path, so in
         // our case it will be './wwwroot/css'
-        publicPath: "/css",
+        //publicPath: "/css",
         // The name of the output bundle. Path is also relative
         // to the output path, so './wwwroot/js'
-        filename: "js/sass.js"
+        filename: "[name].min.js"
     },
     module: {
         // Array of rules that tells Webpack how the modules (output)
@@ -112,6 +114,17 @@ module.exports = {
                 ]
             }
         ]
+    },
+    optimization: {
+        mangleWasmImports: true,
+        removeEmptyChunks: false,
+        flagIncludedChunks: true,
+        splitChunks: {
+            chunks(chunk) {
+                return false;
+            }
+        },
+        runtimeChunk: true
     },
     plugins: [
         // Configuration options for MiniCssExtractPlugin. Here I'm only

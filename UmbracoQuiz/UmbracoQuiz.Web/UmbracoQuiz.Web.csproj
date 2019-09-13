@@ -397,6 +397,8 @@
     </Reference>
   </ItemGroup>
   <ItemGroup>
+    <Content Include="App_Data\Models\all.dll.path" />
+    <Content Include="App_Data\Models\models.hash" />
     <Content Include="App_Data\TEMP\ClientDependency\ITEM-S66924-94cdd672bf1cae455edec305d70c8d7c-map.xml" />
     <Content Include="App_Data\TEMP\DistCache\LMW3SVC2ROOT-lastsynced.txt" />
     <Content Include="App_Data\Umbraco.sdf" />
@@ -6471,9 +6473,12 @@
     <Content Include="node_modules\yargs\lib\yerror.js" />
     <Content Include="node_modules\yargs\node_modules\camelcase\index.js" />
     <Content Include="node_modules\yargs\yargs.js" />
-    <None Include="Scripts\jquery-1.6.4-vsdoc.js" />
-    <Content Include="Scripts\jquery-1.6.4.js" />
-    <Content Include="Scripts\jquery-1.6.4.min.js" />
+    <None Include="Scripts\Thirdparty\jquery-1.6.4-vsdoc.js" />
+    <Content Include="Scripts\Components\modal.js" />
+    <Content Include="Scripts\Components\quizRoom.js" />
+    <Content Include="Scripts\Thirdparty\jquery-1.6.4.js" />
+    <Content Include="Scripts\Thirdparty\jquery-1.6.4.min.js" />
+    <Content Include="Static\Astrid Lindgren.PNG" />
     <Content Include="Umbraco\assets\css\canvasdesigner.css" />
     <Content Include="Umbraco\assets\css\installer.css" />
     <Content Include="Umbraco\assets\css\nonodes.style.min.css" />
@@ -8190,9 +8195,13 @@
     <Content Include="Umbraco\Views\users\views\groups\groups.html" />
     <Content Include="Umbraco\Views\users\views\users\users.html" />
     <Content Include="Umbraco\Views\users\views\user\details.html" />
-    <Content Include="Web.config" />
+    <Content Include="Web.config">
+      <SubType>Designer</SubType>
+    </Content>
     <Content Include="webpack.config.js" />
-    <Content Include="wwwroot\css\site.css" />
+    <Content Include="wwwroot\css\gameroomlistpage.site.css" />
+    <Content Include="wwwroot\css\gameroompage.site.css" />
+    <Content Include="wwwroot\css\startpage.site.css" />
     <Content Include="wwwroot\js\sass.js" />
   </ItemGroup>
   <ItemGroup>
@@ -8213,8 +8222,6 @@
     <Content Include="config\ClientDependency.config" />
     <Content Include="config\BackOfficeTours\getting-started.json" />
     <Content Include="App_Data\Logs\UmbracoTraceLog.ITEM-S66924.20190804.json" />
-    <Content Include="App_Data\Models\all.dll.path" />
-    <Content Include="App_Data\Models\models.hash" />
     <Content Include="App_Data\packages\installedPackages.config" />
     <Content Include="App_Data\TEMP\ExamineIndexes\External\segments.gen" />
     <Content Include="App_Data\TEMP\ExamineIndexes\External\segments_1" />
@@ -11814,7 +11821,6 @@
     <Content Include="Views\Partials\Grid\Bootstrap3-Fluid.cshtml" />
     <Content Include="Views\Startsida.cshtml" />
     <Content Include="Views\master.cshtml" />
-    <Content Include="Static\Styles\site.scss" />
     <Content Include="Umbraco\assets\fonts\helveticons\helveticons.eot" />
     <Content Include="Umbraco\assets\fonts\helveticons\helveticons.ttf" />
     <Content Include="Umbraco\assets\fonts\helveticons\helveticons.woff" />
@@ -11925,6 +11931,20 @@
     <Content Include="Views\QuizMedAlternativ.cshtml" />
     <Content Include="Views\Buzzfraga.cshtml" />
     <Content Include="Views\Partials\_buzzQuestion.cshtml" />
+    <Content Include="Views\Partials\_navigation.cshtml" />
+    <Content Include="Views\Inloggningssida.cshtml" />
+    <Content Include="Static\Styles\Common.scss" />
+    <Content Include="Static\Styles\Variables.scss" />
+    <Content Include="Static\Styles\Button.scss" />
+    <Content Include="Static\Styles\Pages\StartPage.scss" />
+    <Content Include="Static\Styles\Pages\GameRoomPage.scss" />
+    <Content Include="Static\Styles\Wrappers.scss" />
+    <Content Include="Views\Partials\_roomLobby.cshtml" />
+    <Content Include="Views\Partials\_playerBuzzed.cshtml" />
+    <Content Include="Static\Styles\Modals.scss" />
+    <Content Include="Views\Partials\_createRoomModal.cshtml" />
+    <Content Include="Static\Styles\Pages\GameRoomListPage.scss" />
+    <Content Include="Static\Styles\Forms.scss" />
     <None Include="Web.Debug.config">
       <DependentUpon>Web.config</DependentUpon>
     </None>

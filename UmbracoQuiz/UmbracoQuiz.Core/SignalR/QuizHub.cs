@@ -7,6 +7,7 @@ using System.Threading.Tasks;
 using System.Web;
 using UmbracoQuiz.Core.Helpers.Interfaces;
 using UmbracoQuiz.Core.Models;
+using UmbracoQuiz.Core.Models.Enums;
 
 namespace UmbracoQuiz.Core.SignalR
 {
@@ -20,17 +21,46 @@ namespace UmbracoQuiz.Core.SignalR
             _quizHubHelper = quizHubHelper;
         }
 
-        public void ConnectedToRoom(string roomId)
+        public void ConnectedToBuzzQuizRoom(string roomId)
         {
-            RoomModel roomModel = _quizHubHelper.AddPlayerToRoomCache(
-                roomId, Context.ConnectionId, "Lotta pruttar", PlayerRole.Participator);
+            BuzzerQuizRoomModel roomModel = _quizHubHelper.AddPlayerToRoomCache<BuzzerQuizRoomModel>(
+                roomId, Context.ConnectionId, Context.User.Identity.Name, PlayerRole.Participator);
             Groups.Add(Context.ConnectionId, roomId);
-            Clients.Group(roomModel.RoomName).playerJoin(roomModel);
+
+            string roomLobbyView = _partialViewHelper.RazorViewToString("_roomLobby", roomModel);
+            Clients.Group(roomModel.RoomName).playerJoin(roomLobbyView);
         }
 
-        public void Send(string user, string message)
+        public void ConnectedToAlternativeQuizRoom(string roomId)
         {
-            Clients.All.addNewMessageToPage(user, message);
+            AlternativeQuizRoomModel roomModel = _quizHubHelper.AddPlayerToRoomCache<AlternativeQuizRoomModel>(
+                roomId, Context.ConnectionId, Context.User.Identity.Name, PlayerRole.Participator);
+            Groups.Add(Context.ConnectionId, roomId);
+
+            string roomLobbyView = _partialViewHelper.RazorViewToString("_roomLobby", roomModel);
+            Clients.Group(roomModel.RoomName).playerJoin(roomLobbyView);
         }
+
+        public void PlayerBuzz(string roomId)
+        {
+            BuzzerQuizRoomModel roomModel = (BuzzerQuizRoomModel)HttpRuntime.Cache.Get(roomId);
+            if (roomModel.PlayerHasBuzzed)
+                return;
+
+            roomModel.PlayerHasBuzzed = true;
+            HttpRuntime.Cache.Insert(roomId, roomModel, null, DateTime.Now.AddMinutes(180), System.Web.Caching.Cache.NoSlidingExpiration);
+
+            var referee = roomModel.Players.FirstOrDefault(p => p.Role == PlayerRole.GameMaster && p.IsConnected);
+            if(referee == null)
+            {
+                // Pause game if gamemaster isn't connected and show message
+            }
+            string roomLobbyView = _partialViewHelper.RazorViewToString("_playerBuzzed", Context.User.Identity.Name);
+
+            Clients.Client(referee.ConnectionId).letPlayerAnswer(roomLobbyView);
+            Clients.Group(roomId, referee.ConnectionId).letPlayerAnswer(roomLobbyView);
+        }
+
+
     }
 }

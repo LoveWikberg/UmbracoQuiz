@@ -1,0 +1,27 @@
+﻿@import "Variables.scss";
+button {
+    outline: none;
+    font-size: 16px;
+    padding: 15px 20px;
+    border: none;
+    border-radius: 10px;
+    cursor: pointer;
+    color: white;
+
+
+    &.button-strong {
+        background-color: $strong-blue;
+
+        &:hover {
+            background-color: $light-blue;
+        }
+    }
+
+    &.button-weak {
+        background-color: $fogish-blue;
+
+        &:hover {
+            background-color: $light-blue;
+        }
+    }
+}

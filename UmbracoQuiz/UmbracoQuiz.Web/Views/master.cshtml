@@ -8,14 +8,15 @@
 <head prefix="og: http://ogp.me/ns#">
     <meta charset="utf-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1">
+    @*<link href="~/wwwroot/css/site.css" rel="stylesheet" />*@
+    @RenderSection("Styles", false)
 </head>
 <body>
     <nav>
         <h1>Navigation</h1>
     </nav>
     @RenderBody()
-    <script src="~/Scripts/jquery-1.6.4.js"></script>
+    <script src="~/Scripts/Thirdparty/jquery-1.6.4.js"></script>
     @RenderSection("Scripts", false)
-    <link href="~/wwwroot/css/site.css" rel="stylesheet" />
 </body>
 </html>

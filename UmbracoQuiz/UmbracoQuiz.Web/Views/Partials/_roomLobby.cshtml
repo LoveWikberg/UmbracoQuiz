@@ -1,0 +1,12 @@
+﻿@using UmbracoQuiz.Core.Models
+@model RoomModel
+
+<div class="content-wrapper wrapper-medium lobby-wrapper">
+    <h3>@Model.RoomName</h3>
+    <ul>
+        @foreach (var player in Model.Players)
+        {
+            <li>@player.Name</li>
+        }
+    </ul>
+</div>

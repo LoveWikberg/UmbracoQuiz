@@ -1,0 +1,19 @@
+﻿@using UmbracoQuiz.Core.Models
+@using UmbracoQuiz.Core.Controllers
+
+@{ 
+    LoginViewModel model = new LoginViewModel();
+}
+
+@using (Html.BeginUmbracoForm<MemberController>("Login"))
+{
+    <fieldset>
+        @Html.ValidationSummary()
+        @Html.LabelFor(x => model.UserName)
+        @Html.EditorFor(x => model.UserName)
+        <br />
+        @Html.LabelFor(x => model.Password)
+        @Html.EditorFor(x => model.Password)
+        <input type="submit" value="Logga in" />
+    </fieldset>
+}

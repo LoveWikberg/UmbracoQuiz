@@ -1,51 +1,34 @@
-﻿@inherits Umbraco.Web.Mvc.UmbracoViewPage<ContentModels.GameListPage>
-@using ContentModels = Umbraco.Web.PublishedModels;
+﻿@model GameListPageViewModel
+@using UmbracoQuiz.Core.Models
 @using UmbracoQuiz.Core.Controllers
-
 @{
     Layout = "master.cshtml";
+    GameRoomController gameRoomController = new GameRoomController();
 }
 
-<h1>@Model.Header</h1>
+@Html.Partial("_createRoomModal", Model.CreateRoomModel)
 
-<br />
+<div class="content-wrapper">
+    <button id="createGame" data-open-modal="createRoomModal">Skapa rum +</button>
 
-@foreach (var game in Model.Children<GameRoomPage>())
-{
-    <h2>@game.Name</h2>
-    using (Html.BeginUmbracoForm<GameRoomController>("EnterRoom", FormMethod.Get))
+    @foreach (var quizRoom in Model.Content.Children<GameRoomPage>())
     {
-        <input type="hidden" name="nodeId" id="nodeId" value="@game.Id" />
-        <input name="roomCode" id="roomCode" type="text" placeholder="Ange rumkod" maxlength="4" />
-        @Html.ValidationMessage(game.Id.ToString())
-        <button type="submit">Anslut</button>
+        using (Html.BeginUmbracoForm<GameRoomController>(nameof(gameRoomController.EnterRoom)))
+        {
+            <fieldset>
+                <h3>@quizRoom.Name</h3>
+                <input type="hidden" name="nodeId" value="@quizRoom.Id" />
+                <input type="text" placeholder="rumkod" name="roomCode" />
+                <button type="submit">Anslut</button>
+            </fieldset>
+        }
     }
-    <hr />
-}
+</div>
 
-<input id="klicka" value="klick" type="button" />
+@section Styles{
+    <link href="~/wwwroot/css/gameroomlistpage.site.css" rel="stylesheet" />
+}
 
 @section Scripts{
-    <script src="~/Umbraco/lib/signalr/jquery.signalR.js"></script>
-    <script src="/signalr/hubs"></script>
-    <script>
-        var quiz = $.connection.quizHub;
-
-        quiz.client.addNewMessageToPage = function (name, message) {
-            // Add the message to the page.
-            alert(name + message);
-        };
-
-        $.connection.hub.start().done(function () {
-            var nodeId = $('#nodeIdInput').val();
-            quiz.server.connectedToRoom(nodeId);
-
-
-            $('#klicka').click(function () {
-                quiz.server.send('#displayname', '#message');
-            });
-
-        });
-
-    </script>
+    <script src="~/Scripts/Components/modal.js"></script>
 }

@@ -6,12 +6,14 @@ using System.Threading.Tasks;
 using System.Web;
 using UmbracoQuiz.Core.Helpers.Interfaces;
 using UmbracoQuiz.Core.Models;
+using UmbracoQuiz.Core.Models.Enums;
+using UmbracoQuiz.Core.Models.Interfaces;
 
 namespace UmbracoQuiz.Core.Helpers
 {
     public class QuizHubHelper : IQuizHubHelper
     {
-        public RoomModel AddPlayerToRoomCache(string roomId, string playerConnectionId, string playerName, PlayerRole playerRole)
+        public T AddPlayerToRoomCache<T>(string roomId, string playerConnectionId, string playerName, PlayerRole playerRole) where T : IRoomModel<T>, new()
         {
             Player newPlayer = new Player
             {
@@ -19,15 +21,15 @@ namespace UmbracoQuiz.Core.Helpers
                 Name = playerName,
                 Role = playerRole
             };
-            RoomModel roomModel;
+            T roomModel;
             if (HttpRuntime.Cache.Get(roomId) != null)
             {
-                roomModel = (RoomModel)HttpRuntime.Cache.Get(roomId);
+                roomModel = (T)HttpRuntime.Cache.Get(roomId);
                 roomModel.Players.Add(newPlayer);
             }
             else
             {
-                roomModel = new RoomModel
+                roomModel = new T
                 {
                     RoomName = roomId,
                     Players = new List<Player>

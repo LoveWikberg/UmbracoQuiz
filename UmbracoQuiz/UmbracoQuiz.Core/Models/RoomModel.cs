@@ -3,6 +3,8 @@ using System.Collections.Generic;
 using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
+using UmbracoQuiz.Core.Models.Enums;
+using UmbracoQuiz.Core.Models.Interfaces;
 
 namespace UmbracoQuiz.Core.Models
 {
@@ -15,13 +17,11 @@ namespace UmbracoQuiz.Core.Models
     {
         public string Name { get; set; }
         public string ConnectionId { get; set; }
+        public int Points { get; set; }
         public PlayerRole Role { get; set; }
+        public bool IsPlayerBlocked { get; set; }
+        public bool IsConnected { get; set; }
 
     }
-    public enum PlayerRole
-    {
-        Participator = 0,
-        Referee = 1,
-        AllScreen = 2
-    }
+   
 }

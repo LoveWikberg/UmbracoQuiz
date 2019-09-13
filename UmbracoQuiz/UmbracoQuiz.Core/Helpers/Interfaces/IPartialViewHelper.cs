@@ -9,6 +9,6 @@ namespace UmbracoQuiz.Core.Helpers.Interfaces
 {
     public interface IPartialViewHelper
     {
-        string RazorViewToString(ControllerContext controllerContext, string viewName, object model);
+        string RazorViewToString(string viewName, object model, ControllerContext controllerContext = null);
     }
 }

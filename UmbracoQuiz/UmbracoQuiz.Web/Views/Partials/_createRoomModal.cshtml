@@ -1,0 +1,43 @@
+﻿@model CreateRoomModel
+@using UmbracoQuiz.Core.Models
+@using UmbracoQuiz.Core.Controllers
+@{
+    GameRoomController gameRoomController = new GameRoomController();
+}
+
+<div id="createRoomModal" class="custom-modal-container @(TempData["showModal"] != null && (bool)TempData["showModal"] == true ? "" : "hide")">
+    <div class="custom-modal small-modal">
+        @using (Html.BeginUmbracoForm<GameRoomController>("CreateRoom"@*nameof(gameRoomController.CreateRoom)*@, FormMethod.Get))
+        {
+            <div class="form-control">
+                @Html.LabelFor(x => x.Name)
+                @Html.EditorFor(x => x.Name)
+                @Html.ValidationMessageFor(x => x.Name)
+            </div>
+            <div class="form-control">
+                @Html.LabelFor(x => x.MinPlayers)
+                @Html.EditorFor(x => x.MinPlayers)
+                @Html.ValidationMessageFor(x => x.MinPlayers)
+            </div>
+            <div class="form-control">
+                @Html.LabelFor(x => x.MaxPlayers)
+                @Html.EditorFor(x => x.MaxPlayers)
+                @Html.ValidationMessageFor(x => x.MaxPlayers)
+            </div>
+            <div class="form-control">
+                @Html.LabelFor(x => x.SelectedQuizId)
+                <select>
+                    @foreach (var quiz in Model.Quizes)
+                    {
+                        <option name="@Model.SelectedQuizId" value="@quiz.Id">@quiz.Name</option>
+                    }
+                </select>
+                @Html.ValidationMessageFor(x => x.Name)
+            </div>
+            <div class="custom-modal__button-section">
+                <button type="submit" class="button-strong">Skapa rum</button>
+                <button type="button" data-close-modal="" class="button-weak">Avbryt</button>
+            </div>
+        }
+    </div>
+</div>

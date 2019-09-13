@@ -1,0 +1,24 @@
+﻿@import "Variables.scss";
+
+.content-wrapper {
+    padding: 30px;
+    border: 1px solid $fogish-blue;
+    margin: auto;
+    background-color:$medium-blue;
+
+    &.wrapper-medium {
+        width: 90%;
+        max-width: 600px;
+    }
+
+    &.wrapper-large {
+        width: 90%;
+        max-width: 900px;
+    }
+}
+
+@media screen and (max-width:768px){
+    .content-wrapper {
+        padding: 30px 15px;
+    }
+}

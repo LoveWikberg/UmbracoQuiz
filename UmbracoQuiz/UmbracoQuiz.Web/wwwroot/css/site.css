@@ -1,6 +1,6 @@
-html, body {
-  height: 100vh;
-  background-color: red;
-  color: white;
-  margin-right: 20px; }
+body, html {
+  background-color: yellow; }
+
+h2 {
+  color: magenta; }
 

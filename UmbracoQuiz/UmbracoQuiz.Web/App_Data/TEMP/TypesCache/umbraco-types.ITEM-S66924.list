@@ -277,8 +277,9 @@ Umbraco.ModelsBuilder.Validation.MediaTypeModelValidator, Umbraco.ModelsBuilder,
 Umbraco.ModelsBuilder.Validation.MemberTypeModelValidator, Umbraco.ModelsBuilder, Version=8.0.0.0, Culture=neutral, PublicKeyToken=null
 Umbraco.ModelsBuilder.Umbraco.ModelsBuilderComposer, Umbraco.ModelsBuilder, Version=8.0.0.0, Culture=neutral, PublicKeyToken=null
 Umbraco.ModelsBuilder.Umbraco.ModelsBuilderBackOfficeController, Umbraco.ModelsBuilder, Version=8.0.0.0, Culture=neutral, PublicKeyToken=null
+UmbracoQuiz.Core.Controllers.GameListPageController, UmbracoQuiz.Core, Version=1.0.0.0, Culture=neutral, PublicKeyToken=null
 UmbracoQuiz.Core.Controllers.GameRoomController, UmbracoQuiz.Core, Version=1.0.0.0, Culture=neutral, PublicKeyToken=null
-UmbracoQuiz.Core.Controllers.StartPageController, UmbracoQuiz.Core, Version=1.0.0.0, Culture=neutral, PublicKeyToken=null
+UmbracoQuiz.Core.Controllers.MemberController, UmbracoQuiz.Core, Version=1.0.0.0, Culture=neutral, PublicKeyToken=null
 
 Umbraco.Core.Composing.IComposer
 
@@ -348,11 +349,12 @@ Umbraco.Web.Controllers.UmbLoginStatusController, Umbraco.Web, Version=8.0.0.0, 
 Umbraco.Web.Controllers.UmbRegisterController, Umbraco.Web, Version=8.0.0.0, Culture=neutral, PublicKeyToken=null
 Umbraco.Web.Controllers.UmbLoginController, Umbraco.Web, Version=8.0.0.0, Culture=neutral, PublicKeyToken=null
 UmbracoQuiz.Core.Controllers.GameRoomController, UmbracoQuiz.Core, Version=1.0.0.0, Culture=neutral, PublicKeyToken=null
+UmbracoQuiz.Core.Controllers.MemberController, UmbracoQuiz.Core, Version=1.0.0.0, Culture=neutral, PublicKeyToken=null
 
 Umbraco.Web.Mvc.IRenderMvcController
 
 Umbraco.Web.Mvc.RenderMvcController, Umbraco.Web, Version=8.0.0.0, Culture=neutral, PublicKeyToken=null
-UmbracoQuiz.Core.Controllers.StartPageController, UmbracoQuiz.Core, Version=1.0.0.0, Culture=neutral, PublicKeyToken=null
+UmbracoQuiz.Core.Controllers.GameListPageController, UmbracoQuiz.Core, Version=1.0.0.0, Culture=neutral, PublicKeyToken=null
 
 Umbraco.Web.WebApi.UmbracoApiController
 
@@ -433,6 +435,7 @@ Umbraco.Web.Controllers.UmbLoginStatusController, Umbraco.Web, Version=8.0.0.0, 
 Umbraco.Web.Controllers.UmbRegisterController, Umbraco.Web, Version=8.0.0.0, Culture=neutral, PublicKeyToken=null
 Umbraco.Web.Controllers.UmbLoginController, Umbraco.Web, Version=8.0.0.0, Culture=neutral, PublicKeyToken=null
 UmbracoQuiz.Core.Controllers.GameRoomController, UmbracoQuiz.Core, Version=1.0.0.0, Culture=neutral, PublicKeyToken=null
+UmbracoQuiz.Core.Controllers.MemberController, UmbracoQuiz.Core, Version=1.0.0.0, Culture=neutral, PublicKeyToken=null
 
 Umbraco.Core.Dashboards.IDashboard
 
@@ -584,6 +587,7 @@ Umbraco.Web.PublishedModels.Folder, Umbraco.Web.PublishedModels, Version=0.0.0.0
 Umbraco.Web.PublishedModels.GameListPage, Umbraco.Web.PublishedModels, Version=0.0.0.0, Culture=neutral, PublicKeyToken=null
 Umbraco.Web.PublishedModels.GameRoomPage, Umbraco.Web.PublishedModels, Version=0.0.0.0, Culture=neutral, PublicKeyToken=null
 Umbraco.Web.PublishedModels.Image, Umbraco.Web.PublishedModels, Version=0.0.0.0, Culture=neutral, PublicKeyToken=null
+Umbraco.Web.PublishedModels.LoginPage, Umbraco.Web.PublishedModels, Version=0.0.0.0, Culture=neutral, PublicKeyToken=null
 Umbraco.Web.PublishedModels.Member, Umbraco.Web.PublishedModels, Version=0.0.0.0, Culture=neutral, PublicKeyToken=null
 Umbraco.Web.PublishedModels.StartPage, Umbraco.Web.PublishedModels, Version=0.0.0.0, Culture=neutral, PublicKeyToken=null
 

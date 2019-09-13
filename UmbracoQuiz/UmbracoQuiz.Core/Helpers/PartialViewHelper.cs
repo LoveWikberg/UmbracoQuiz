@@ -8,7 +8,7 @@ namespace UmbracoQuiz.Core.Helpers
 {
     public class PartialViewHelper : IPartialViewHelper
     {
-        public string RazorViewToString(ControllerContext controllerContext, string viewName, object model)
+        public string RazorViewToString(string viewName, object model, ControllerContext controllerContext = null)
         {
             if (controllerContext == null)
             {

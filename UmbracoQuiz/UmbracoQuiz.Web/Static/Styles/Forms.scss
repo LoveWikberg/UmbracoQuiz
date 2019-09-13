@@ -1,0 +1,16 @@
+﻿@import "Variables.scss";
+
+form {
+    .form-control {
+        margin-bottom: 20px;
+
+        input, select {
+            width:100%;
+            display:block;
+            font-size: 16px;
+            padding: 5px;
+            border-radius: 7px;
+            border: 1px solid $fogish-blue;
+        }
+    }
+}
