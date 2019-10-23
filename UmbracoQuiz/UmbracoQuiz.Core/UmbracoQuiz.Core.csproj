@@ -120,6 +120,9 @@
     <Reference Include="Owin, Version=1.0.0.0, Culture=neutral, PublicKeyToken=f0ebd12fd5e55cc5, processorArchitecture=MSIL">
       <HintPath>..\packages\Owin.1.0\lib\net40\Owin.dll</HintPath>
     </Reference>
+    <Reference Include="RazorEngine, Version=3.10.0.0, Culture=neutral, PublicKeyToken=9ee697374c7e744a, processorArchitecture=MSIL">
+      <HintPath>..\packages\RazorEngine.3.10.0\lib\net45\RazorEngine.dll</HintPath>
+    </Reference>
     <Reference Include="Semver, Version=2.0.4.0, Culture=neutral, processorArchitecture=MSIL">
       <HintPath>..\packages\Semver.2.0.4\lib\net452\Semver.dll</HintPath>
     </Reference>
@@ -239,14 +242,18 @@
     <Compile Include="Controllers\GameListPageController.cs" />
     <Compile Include="Controllers\GameRoomController.cs" />
     <Compile Include="Controllers\MemberController.cs" />
-    <Compile Include="Helpers\Interfaces\IPartialViewHelper.cs" />
+    <Compile Include="Helpers\GameRoomHelper.cs" />
+    <Compile Include="Helpers\Interfaces\IGameRoomHelper.cs" />
+    <Compile Include="Helpers\Interfaces\IRazorHelper.cs" />
     <Compile Include="Helpers\Interfaces\IQuizHubHelper.cs" />
-    <Compile Include="Helpers\PartialViewHelper.cs" />
+    <Compile Include="Helpers\RazorHelper.cs" />
     <Compile Include="Helpers\QuizHubHelper.cs" />
     <Compile Include="Initiation\Startup.cs" />
+    <Compile Include="IOC\DependencyInitialization.cs" />
     <Compile Include="Models\AlternativeQuestionModel.cs" />
     <Compile Include="Models\AlternativeQuizRoomModel.cs" />
     <Compile Include="Models\BuzzerQuizRoomModel.cs" />
+    <Compile Include="Models\Constants\PartialViewConstants.cs" />
     <Compile Include="Models\CreateRoomModel.cs" />
     <Compile Include="Models\Enums\PlayerRole.cs" />
     <Compile Include="Models\Enums\QuizType.cs" />

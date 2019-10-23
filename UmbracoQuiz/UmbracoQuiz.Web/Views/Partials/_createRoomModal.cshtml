@@ -1,13 +1,10 @@
 ﻿@model CreateRoomModel
 @using UmbracoQuiz.Core.Models
 @using UmbracoQuiz.Core.Controllers
-@{
-    GameRoomController gameRoomController = new GameRoomController();
-}
 
 <div id="createRoomModal" class="custom-modal-container @(TempData["showModal"] != null && (bool)TempData["showModal"] == true ? "" : "hide")">
     <div class="custom-modal small-modal">
-        @using (Html.BeginUmbracoForm<GameRoomController>("CreateRoom"@*nameof(gameRoomController.CreateRoom)*@, FormMethod.Get))
+        @using (Html.BeginUmbracoForm<GameRoomController>(nameof(GameRoomController.CreateRoom), FormMethod.Post))
         {
             <div class="form-control">
                 @Html.LabelFor(x => x.Name)
@@ -26,13 +23,16 @@
             </div>
             <div class="form-control">
                 @Html.LabelFor(x => x.SelectedQuizId)
-                <select>
+
+                @Html.DropDownListFor(m => m.SelectedQuizId, Model.Quizes, "Välj quiz")
+
+                @*<select name="@Model.SelectedQuizId">
                     @foreach (var quiz in Model.Quizes)
                     {
-                        <option name="@Model.SelectedQuizId" value="@quiz.Id">@quiz.Name</option>
+                        <option value="@quiz.Value">@quiz.Text</option>
                     }
-                </select>
-                @Html.ValidationMessageFor(x => x.Name)
+                </select>*@
+                @Html.ValidationMessageFor(x => x.SelectedQuizId)
             </div>
             <div class="custom-modal__button-section">
                 <button type="submit" class="button-strong">Skapa rum</button>

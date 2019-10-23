@@ -3,7 +3,6 @@
 @using UmbracoQuiz.Core.Controllers
 @{
     Layout = "master.cshtml";
-    GameRoomController gameRoomController = new GameRoomController();
 }
 
 @Html.Partial("_createRoomModal", Model.CreateRoomModel)
@@ -13,7 +12,7 @@
 
     @foreach (var quizRoom in Model.Content.Children<GameRoomPage>())
     {
-        using (Html.BeginUmbracoForm<GameRoomController>(nameof(gameRoomController.EnterRoom)))
+        using (Html.BeginUmbracoForm<GameRoomController>(nameof(GameRoomController.EnterRoom), FormMethod.Get))
         {
             <fieldset>
                 <h3>@quizRoom.Name</h3>

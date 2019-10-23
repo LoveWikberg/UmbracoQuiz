@@ -21,6 +21,7 @@ namespace UmbracoQuiz.Core.Models
         public PlayerRole Role { get; set; }
         public bool IsPlayerBlocked { get; set; }
         public bool IsConnected { get; set; }
+        public bool IsCurrentBuzzer { get; set; }
 
     }
    

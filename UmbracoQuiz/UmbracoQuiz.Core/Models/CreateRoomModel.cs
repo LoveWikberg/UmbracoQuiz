@@ -4,6 +4,7 @@ using System.ComponentModel.DataAnnotations;
 using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
+using System.Web.Mvc;
 using Umbraco.Web.PublishedModels;
 using UmbracoQuiz.Core.Models.Enums;
 
@@ -23,7 +24,7 @@ namespace UmbracoQuiz.Core.Models
         [Required]
         [Display(Name = "Välj quiz")]
         public string SelectedQuizId { get; set; }
-        public List<Quiz> Quizes { get; set; }
+        public List<SelectListItem> Quizes { get; set; }
     }
 
     public class Quiz

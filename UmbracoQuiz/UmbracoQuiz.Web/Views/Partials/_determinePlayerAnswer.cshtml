@@ -1,0 +1,23 @@
+﻿@model string
+
+<div class="content-wrapper wrapper-medium">
+    <h1>@Model hann först!</h1>
+    <div id="determine-answer-wrapper">
+        <h2>Rätt svar?</h2>
+        <button id="correctAnswerBtn">Ja</button>
+        <button id="inCorrectAnswerBtn">Nej</button>
+    </div>
+    <div id="award-points-wrapper" class="hide-element">
+        <h2>Tilldela poäng</h2>
+        <button id="awardOnePointBtn">Tilldela 1 poäng</button>
+        Eller välj antal poäng
+        <select id="chosenPoints">
+            <option selected disabled>Välj</option>
+            @for (int i = 2; i <= 10; i++)
+            {
+                <option value="@i">@i</option>
+            }
+        </select>
+        <button id="awardChosenPointsBtn" hidden></button>
+    </div>
+</div>

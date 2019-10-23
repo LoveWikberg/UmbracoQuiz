@@ -11,6 +11,9 @@ namespace UmbracoQuiz.Core.Helpers.Interfaces
 {
     public interface IQuizHubHelper
     {
-        T AddPlayerToRoomCache<T>(string roomId, string playerConnectionId, string playerName, PlayerRole playerRole) where T : IRoomModel<T>, new();
+        void AddPlayerToRoomCache<T>(string roomId, string playerConnectionId, string playerName, PlayerRole playerRole, out T roomModel) where T : IRoomModel<T>, new();
+        Player GetGameMaster(List<Player> players);
+        BuzzerQuizRoomModel GetBuzzerQuizRoomFromCache(string roomId);
+        void SetQuizRoomCache<T>(string key, IRoomModel<T> data);
     }
 }
